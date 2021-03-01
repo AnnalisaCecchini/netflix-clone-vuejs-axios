@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix | Clone - Home</title>
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./dist/css/app.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <main>
+        <div class="header">
+            <img src="https://fontmeme.com/permalink/210209/6a027de899f24e8f2f3e7d1ef72b9bee.png" alt="netflix-font" border="0">
+            <a class="btn" href="movies.html">Go To API</a>
+        </div>
+       
+
+        <!-- HERO -->
+        <section class="hero ">
+            <div class="container">
+                <h2>Thanks for coming.</h2>
+                <h1>Unlimited movies, TV shows, and more.</h1>
+                <h3>Ready to watch? Click on the button below to go to the movie list.</h3>
+                <a class="btn btn__CTA nowrap" href="movies.html">CLICK TO BROWSE API CONNECTION</a>
+            </div>
+        
+        </section>
+    </main>
+
+    <!-- SECTION - 1 -->
+    <section class="section">
+        <div class="section__box container">
+            <div class="section__titles">
+                <h1>Enjoy on your TV.</h1>
+                <h2>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</h2>
+            </div>
+            <div class="section__image__container">
+                <img class="section__image__image"src="./images/section1-tv.png" alt="section1tv">
+                <div class="section__image__animation">
+                    <video autoplay playsinline muted loop>
+                        <source src="./images/video-tv.m4v" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION - 2 -->
+    <section class="section">
+        <div class="section__box section__box--reverse container">
+            <div class="section__titles">
+                <h1>Download your shows to watch offline.</h1>
+                <h2>Save your favorites easily and always have something to watch.</h2>
+            </div>
+            <div class="section__image__container">
+                <img class="section__image__image"src="./images/section2-img.jpg" alt="section2tv">
+                <div class="section__image__animation section__image__animation--2">
+                    <div class="section__image__animation--box">
+                        <img src="./images/section2-book.png" alt="">
+                        <div class="section__image__animation--box__text">
+                            <p>Stranger Things</p>
+                            <p class="p-small">Downloading...</p>
+                        </div>
+                        <img src="./images/icon-download.gif" alt="download">
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- SECTION - 3 -->
+    <section class="section">
+        <div class="section__box container">
+            <div class="section__titles">
+                <h1>Watch everywhere.</h1>
+                <h2>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.</h2>
+            </div>
+            <div class="section__image__container">
+                <img class="section__image__image"src="./images/section3-devices.png" alt="section3tv">
+                <div class="section__image__animation section__image__animation--3">
+                    <video autoplay playsinline muted loop>
+                        <source src="./images/video-devices.m4v" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section  id="app" class="section section--faq">
+        <div class="section__faq container">
+            <h1>Frequently Asked Questions</h1>
+            <div class="faq"  v-for="(item, id) in items" >
+                <div @click="item.open = !item.open" class="faq__top">
+                    <h4>{{item.title}}</h4>
+                    <h4 v-if="item.open">-</h4>
+                    <h4 v-else>+</h4>
+                </div>
+                <div v-if="item.open" class="faq__bottom">
+                    <h4 > {{item.content}}
+                    </h4>
+                </div>
+            </div>
+            <div class="faq__end">
+                <p>Ready to watch?</p>
+                <a class="btn btn__CTA nowrap" href="movies.html">CLICK TO BROWSE API CONNECTION</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container container--footer">
+            <p class="footer__title">Questions? Call 800-130-365</p>
+            <ul>
+                <li>
+                    <a class="p-small" href="#!">FAQ</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Help Center</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Account</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Media Center</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Investor Relations</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Jobs</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Redeem Gift Cards</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Buy Gift Cards</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Ways to Watch</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Terms of Use</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Privacy</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Cookie Preferences</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Corporate Information</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Contact Us</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Speed Test</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Legal Notices</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Netflix Originals</a>
+                </li>
+            </ul>
+            <p class="footer__credits p-small">Netflix Italy</p>
+        </div>
+    </footer>
+
+    <!-- JS FAQ -->
+    <script src="./dist/js/app.js"></script>
+
+</body>
+</html>

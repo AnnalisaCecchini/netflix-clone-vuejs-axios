@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix | Clone - Movies DB</title>
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet"> 
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./dist/css/app.css">
+</head>
+<body>
+    <div id="app2">
+        <main class="main--movies">
+            <div class="header">
+                <a href="index.html">
+                    <img src="https://fontmeme.com/permalink/210209/6a027de899f24e8f2f3e7d1ef72b9bee.png" alt="netflix-font" border="0">
+                </a>
+                <a class="btn nowrap" href="index.html">Back to the Homepage</a>
+            </div>
+           
+            <section class="section">
+                <div class="search__banner">
+                    <input v-model="searchInput" 
+                            @keyup.enter="lookFor" 
+                            @keyup.delete="lookFor" 
+                            type="text" 
+                            class="search__input" 
+                            id="run"
+                    >
+                    <button @click="lookFor" 
+                            class="btn"
+                    >Search
+                    </button>
+                </div>
+            
+            </section>
+        </main>
+
+        <!-- MOVIES -->
+        <section class="section">
+            <div class="container">
+                <!-- Movies filter -->
+                <div class="theme__filter">
+                    <h1 class="theme__filter__title">Movies</h1>
+                    <div class="theme__filter__filter">
+                        <h2 class="">Filter by genre:</h2>
+                        <select v-model="actualMoviegenre"
+                                @change="filterGenreMovie"
+                        >
+                            <option value="all">All</option>
+                            <option v-for="movieGenre in movieGenres"
+                                    :value="movieGenre.id">{{movieGenre.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Movies cards -->
+                <div class="theme__show">
+                    <ul class="theme__list">
+                        <li v-for="movie in movies" 
+                            class="theme__item">
+                                <img v-if=" movie.poster_path" 
+                                    :src="getPoster(movie.poster_path)" 
+                                    :alt="movie.original_language"
+                                    class="theme__item__img"
+                                >
+                                <img v-else 
+                                    src="https://www.altavod.com/assets/images/poster-placeholder.png" 
+                                    :alt="movie.original_language"
+                                    class="theme__item__img"
+                                >
+                                <h3 class="theme__item__title">{{movie.title}}</h3>
+                                <div class="theme__item__layover">
+                                    <h4 class="theme__layover__title">{{movie.original_title}}</h4>
+                                    <div class="theme__layover__lang">
+                                        <img v-if="isLangFlag(movie.original_language)" 
+                                            :src="getFlag(movie.original_language)" 
+                                            :alt="movie.original_language">
+                                        <h5 v-else>{{movie.original_language}}</h5>
+                                    </div>
+                                    <div class="theme__layover__rating">
+                                        <i v-for="n in getRating(movie.vote_average)" class="fas fa-star"></i>
+                                        <i v-for="n in 5 - getRating(movie.vote_average)" class="far fa-star"></i>
+                                    </div>
+                                    <a href="#!">
+                                        <i class="theme__layover__play fas fa-play"></i>
+                                    </a>
+                                    <p class="">{{movie.overview}}
+                                        <span v-show="movie.overview == ''">[No preview available]</span>
+                                    </p>                                
+                                </div>
+                        </li>
+                        <li class="theme__item--failure" v-show="movies.length == 0">
+                            <h2>
+                                Sorry, we didn't find any title. Please try again, or go back to the homepage.
+                            </h2> 
+                            <a class="btn btn__CTA nowrap" href="index.html">BACK TO THE HOMEPAGE</a>
+                        </li>
+                    </ul>    
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer--movies">
+        <div class="container container--footer">
+            <p class="footer__title">Questions? Call 800-130-365</p>
+            <ul>
+                <li>
+                    <a class="p-small" href="#!">FAQ</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Help Center</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Account</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Media Center</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Investor Relations</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Jobs</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Redeem Gift Cards</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Buy Gift Cards</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Ways to Watch</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Terms of Use</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Privacy</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Cookie Preferences</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Corporate Information</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Contact Us</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Speed Test</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Legal Notices</a>
+                </li>
+                <li>
+                    <a class="p-small" href="#!">Netflix Originals</a>
+                </li>
+            </ul>
+            <p class="footer__credits p-small">Netflix Italy</p>
+        </div>
+    </footer>
+    
+    <!-- JS AXIOS-->
+    <script src="./dist/js/api.js"></script>
+
+</body>
+</html>

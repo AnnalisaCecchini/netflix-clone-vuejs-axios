@@ -1,0 +1,23 @@
+.btn {
+    background: $active;
+    padding: 0.2rem 0.5rem 0.3rem;
+    margin: 1rem;
+    color: $text;
+    border-radius: 5px;
+
+    &:hover {
+        background: $active-hover;
+    }
+
+    &__CTA {
+        font-size: 16px;
+        letter-spacing: .1rem;
+        font-weight: 400;
+        border-radius: 3px;
+        padding: .5rem 1rem;
+
+        @include desktop {
+            font-size: 30px;
+        }
+    }
+}

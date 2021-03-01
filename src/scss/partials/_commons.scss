@@ -1,0 +1,108 @@
+// GENERAL
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family;
+    color: $text;
+    background: $bg;
+    // padding: 1rem;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+// MEDIA QUERY
+$desktop: 950px;
+$tablet: 550px;
+
+@mixin tablet {
+    @media screen and (min-width: #{$tablet}) {
+      @content;
+    }
+  }
+
+
+@mixin desktop {
+  @media screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+// TYPOGRAPHY
+h1 {
+    font-size: 1.625rem;
+    line-height: 1.1;
+    font-weight: 700;
+
+    @include desktop {
+        font-size: 3.125rem;
+    }
+}
+
+h2 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-top: 1rem;
+
+    @include desktop() {
+        font-size: 1.625rem;
+    }
+}
+
+h3 {
+    font-size: 1.125rem;
+    font-weight: 400;
+
+    @include desktop() {
+        font-size: 1.5rem;
+    }
+}
+
+h4 {
+    font-size: 19px;
+    font-weight: 400;
+
+    @include desktop() {
+        font-size: 1.625rem;
+    }
+}
+
+p {
+    font-size: 16px;
+}
+
+.p-small {
+    font-size: 14px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+// LAYOUT
+.section {
+    padding: 4rem 1rem 3rem;
+    border-bottom: 10px solid $border;
+
+    &__box {
+        text-align: center;
+    }
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+
+    &--footer {
+        max-width: 950px;
+    }
+}

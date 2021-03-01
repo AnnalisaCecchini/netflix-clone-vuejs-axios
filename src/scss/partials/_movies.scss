@@ -1,0 +1,220 @@
+.theme__box img {
+    max-width: 50%;
+}
+
+main.main--movies {
+    text-align: center;
+
+    @include desktop {
+        min-height: auto;
+    }
+
+}
+
+.search__input {
+    line-height: 1.5rem;
+    padding: .5rem 1rem;
+    border: 2px solid $border;
+    width: 40% ;
+
+    &:focus, 
+    &:hover {
+        border: 2px solid $active;
+        color: $active;
+        outline: none;
+    }
+}
+
+.search__banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    & label {
+        font-size: 1.3rem;
+        margin-right: 1rem;
+    }
+
+    button {
+        border: 1px solid $active;
+        line-height: 1.5rem;
+        padding: .5rem 1rem .6rem;
+        font-size: 1.5rem;
+
+        @include desktop {
+            font-size: 2rem;
+        }
+    }
+}
+
+.theme__filter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__title {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    &__filter {
+        display: flex;
+        align-items: center;
+
+        h2 {
+            padding-right: 1.5rem;
+            margin-top: 0;
+        }
+
+        select, 
+        option {
+            @include desktop {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    @include desktop {
+        flex-direction: row;
+        justify-content: space-between;
+
+        &__title {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.theme__show {
+    min-height: 40vh;
+
+    @include desktop {
+        min-height: 50vh;
+    }
+}
+
+
+// MOVIE CARDS
+.theme__list {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    justify-content: space-around;
+
+    .theme__item {
+        display: flex;
+        flex-basis: 200px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        cursor: pointer;
+        text-align: center;
+
+        &__img {
+            width: 180px;
+            padding: 5px;
+            margin: 0 auto;
+            border-radius: 15px;
+
+            @include tablet {
+                width: 220px;
+            }
+
+            @include desktop {
+                width: 260px;
+            }
+        }
+
+        & h3 {
+            @include desktop {
+                font-size: 1.125rem;
+            }
+        }
+
+        &--failure {
+            padding-top: 3rem;
+            text-align: center;
+
+            h2 {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
+
+.theme__item {
+    position: relative;
+
+    &__layover {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        background: rgb($bg, .9);
+        padding: 1.3rem;
+        opacity: 0;
+        transition: all .4s;
+        border-radius: 15px;
+        z-index: 1;
+        
+        p {
+            text-align: left;
+            font-size: .8rem;
+            line-height: 1.1rem;
+
+            @include tablet {
+                font-size: .9rem;
+                line-height: 1.2rem;
+            }
+
+            @include desktop {
+                font-size: 1rem;
+                line-height: 1.3rem;
+            }
+        }
+
+        h4 {
+            margin-bottom: .2rem;
+
+            @include desktop {
+                font-size: 19px;
+            }
+        }
+    }
+
+    &:hover .theme__item__layover {
+        opacity: 1;
+        display: block;
+    }
+}
+
+.theme__layover {
+
+    &__lang {
+    text-transform: uppercase;
+
+
+        img {
+            max-height: 15px;
+            margin: .2rem 0;
+        }
+    }
+
+    &__play {
+        margin: .4rem;
+        padding: 1rem 1rem 1.2rem 1rem;
+        font-size: 1.5rem;
+        color: $text;
+        transition: all .2s;
+
+        &:hover {
+            font-size: 2rem;
+            color: $active;
+        }
+    }
+}

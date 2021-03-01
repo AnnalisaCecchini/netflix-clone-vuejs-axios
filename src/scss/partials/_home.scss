@@ -1,0 +1,187 @@
+// HERO
+.hero {
+    padding: 5rem 1rem 7rem;
+    text-align: center;
+
+    @include desktop {
+        padding-top: 8rem;
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        margin: 1rem 0 2rem;
+    }
+}
+
+
+main {
+    background: 
+        linear-gradient(
+            to bottom, 
+            rgba($bg, 0.7), 
+            rgba($bg, 0.3)
+        ),
+        url('../../images/netflix_website_small.jpg') bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 10px solid $border;
+
+    @include desktop {
+        min-height: 80vh;
+        background: 
+            linear-gradient(
+                to bottom, 
+                rgba($bg, 0.7), 
+                rgba($bg, 0.3)
+            ),
+            url('../../images/netflix_website_large.jpg')  bottom;
+    }
+    
+}
+
+// SECTION 1 - 2 - 3
+.section__image__container {
+    position: relative;
+    overflow: hidden;
+
+    img {
+    position: relative;
+    max-width: 100%;
+    z-index: 2;
+
+    }
+
+    .section__image__animation {
+        width: 100%;
+        height: 100%;
+        max-width: 74%;
+        max-height: 54%;
+        position: absolute;
+        top: 20%;
+        left: 13%;
+
+        &--2 {
+            top: 63%;
+        }
+
+        &--3 {
+            max-width: 94%;
+            max-height: 47%;
+            top: 11%;
+            left: 4%;
+        }
+    }
+
+    video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        vertical-align: baseline
+    }
+}
+
+
+.section__box {
+
+    @include desktop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .section__titles {
+            text-align: left;
+            flex-basis: 50%;
+        }
+
+        &--reverse {
+            flex-direction: row-reverse;
+        }
+    }
+
+}
+
+// -> section 2
+.section__image__animation--box {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 90%;
+    margin: auto;
+    border: 2px solid $border;
+    border-radius: 10px;
+    background: $bg;
+
+    img {
+        max-width: 25%;
+        padding: .5rem;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        .p-small {
+            color: #0071eb;
+        }
+    }
+}
+
+
+// FAQ
+.section--faq {
+    padding-bottom: 4rem;
+
+    .section__faq {
+        max-width: 815px;
+
+        h1 {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+    }
+
+    .faq__end {
+        text-align: center;
+    }
+
+    p {
+        margin: 3rem 0 2rem;
+    }
+
+
+
+}
+
+.faq {
+    margin-top: .5rem;
+
+    .faq__top {
+        padding: 1rem 1.2rem;
+        background: $bg-light;
+        margin-bottom: .1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: grab;
+
+        h4:not(:first-child) {
+            font-size: 2rem;
+        }
+    }
+
+    .faq__bottom {
+        padding: 1rem 1.2rem;
+        background: $bg-light;
+    }
+}
+
